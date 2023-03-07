@@ -1,29 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Change Color on Spacebar or Touch</title>
-	<style>
-		body {
-			background-color: #e6e6e6;
-		}
-	</style>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onkeypress="changeColor(event)" ontouchstart="changeColor(event)">
-	<script>
-		var colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"]; // define an array of colors
-		var index = 0; // initialize the index of the current color
-
-		function changeColor(event) {
-			if (event.type == "keypress" && event.code == "Space") { // check if the user pressed the spacebar
-				index++; // increment the index of the current color
-				if (index == colors.length) { // if the index reaches the end of the array, reset it to 0
-					index = 0;
-				}
-			} else if (event.type == "touchstart") { // check if the user touched the screen
-				index = Math.floor(Math.random() * colors.length); // pick a random index of the color array
-			}
-			document.body.style.backgroundColor = colors[index]; // set the background color of the webpage to the color at the current index
-		}
-	</script>
+<body>
+  <div id="container"></div>
+  <script src="script.js"></script>
 </body>
 </html>
