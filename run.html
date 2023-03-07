@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Change Background Color on Space Bar Press</title>
-	<script>
-		document.body.onkeyup = function(e){
-			if(e.keyCode == 32){
-				changeBackgroundColor();
-			}
-		}
-
-		function changeBackgroundColor(){
-			var colors = ["red", "green", "blue", "yellow", "purple", "orange"];
-			var randomColor = colors[Math.floor(Math.random() * colors.length)];
-			document.body.style.backgroundColor = randomColor;
-		}
-	</script>
+  <title>Color Changing Website</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-	
-	<p>Click on the screen to activate it, then press the space bar to change the color.</p>
+  <h1>Press space or click the screen to change colors!</h1>
+  <script>
+    // function to generate random colors
+    function randomColor() {
+      let letters = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+    
+    // event listener for spacebar key press
+    document.addEventListener("keydown", function(event) {
+      if (event.code === "Space") {
+        document.body.style.backgroundColor = randomColor();
+        document.body.style.color = randomColor();
+      }
+    });
+    
+    // event listener for screen click
+    document.addEventListener("click", function() {
+      document.body.style.backgroundColor = randomColor();
+      document.body.style.color = randomColor();
+    });
+  </script>
 </body>
 </html>
